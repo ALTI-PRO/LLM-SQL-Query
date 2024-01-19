@@ -47,8 +47,7 @@ def read_sql_query(sql, db):
             # Create a cursor to execute SQL queries
             cursor = connection.cursor()
             
-            # Example: Query data from a table with explicit column names
-            query = "SELECT CustomerID, CustomerName, ContactName, Address, City, PostalCode, Country FROM customers LIMIT 5"
+            # Query to the database
             cursor.execute(sql)
 
             # Fetch column names if available
@@ -106,5 +105,5 @@ if submit:
     st.header("The LLM generated query is: ")
     st.write(llm_response)
     st.subheader("The response form DB is: ")
-    data = read_sql_query(llm_response, "generative_sql")
+    read_sql_query(llm_response, "generative_sql")
 
